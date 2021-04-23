@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB59BF263365190016A5B4 /* InkNoteApp.swift */; };
-		52AB59C2263365190016A5B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB59C1263365190016A5B4 /* ContentView.swift */; };
 		52AB59C42633651A0016A5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C32633651A0016A5B4 /* Assets.xcassets */; };
 		52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */; };
 		52AF2BD4263367200026CCE5 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BD3263367200026CCE5 /* Injection.swift */; };
@@ -22,12 +21,17 @@
 		52AF2BEE263368440026CCE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BED263368440026CCE5 /* Constants.swift */; };
 		52AF2BF1263368F60026CCE5 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BF0263368F60026CCE5 /* LocalDataSource.swift */; };
 		52AF2BF42633690B0026CCE5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BF32633690B0026CCE5 /* Note.swift */; };
+		52AF2BFA263370880026CCE5 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 52AF2BF9263370880026CCE5 /* Realm */; };
+		52AF2BFC263370880026CCE5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52AF2BFB263370880026CCE5 /* RealmSwift */; };
+		52AF2C14263374670026CCE5 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C0A263372BB0026CCE5 /* Poppins-Bold.ttf */; };
+		52AF2C15263374670026CCE5 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */; };
+		52AF2C16263374670026CCE5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C07263372BB0026CCE5 /* Poppins-Medium.ttf */; };
+		52AF2C17263374670026CCE5 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52AB59BC263365190016A5B4 /* InkNote-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InkNote-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AB59BF263365190016A5B4 /* InkNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkNoteApp.swift; sourceTree = "<group>"; };
-		52AB59C1263365190016A5B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52AB59C32633651A0016A5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52AB59C82633651A0016A5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +46,10 @@
 		52AF2BED263368440026CCE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52AF2BF0263368F60026CCE5 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		52AF2BF32633690B0026CCE5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		52AF2C07263372BB0026CCE5 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		52AF2C0A263372BB0026CCE5 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AF2BFC263370880026CCE5 /* RealmSwift in Frameworks */,
+				52AF2BFA263370880026CCE5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +90,6 @@
 				52AB59D32633658D0016A5B4 /* Module */,
 				52AB59D12633653D0016A5B4 /* Utils */,
 				52AB59D2263365480016A5B4 /* Supporting Files */,
-				52AB59C1263365190016A5B4 /* ContentView.swift */,
 				52AB59C52633651A0016A5B4 /* Preview Content */,
 			);
 			path = "InkNote-IOS";
@@ -123,6 +132,7 @@
 		52AB59D2263365480016A5B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52AF2C0B263372E30026CCE5 /* Fonts */,
 				52AB59C82633651A0016A5B4 /* Info.plist */,
 				52AB59C32633651A0016A5B4 /* Assets.xcassets */,
 			);
@@ -190,6 +200,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		52AF2C0B263372E30026CCE5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				52AF2C0A263372BB0026CCE5 /* Poppins-Bold.ttf */,
+				52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */,
+				52AF2C07263372BB0026CCE5 /* Poppins-Medium.ttf */,
+				52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,6 +227,10 @@
 			dependencies = (
 			);
 			name = "InkNote-IOS";
+			packageProductDependencies = (
+				52AF2BF9263370880026CCE5 /* Realm */,
+				52AF2BFB263370880026CCE5 /* RealmSwift */,
+			);
 			productName = "InkNote-IOS";
 			productReference = 52AB59BC263365190016A5B4 /* InkNote-IOS.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +258,9 @@
 				Base,
 			);
 			mainGroup = 52AB59B3263365190016A5B4;
+			packageReferences = (
+				52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 52AB59BD263365190016A5B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,6 +275,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AF2C14263374670026CCE5 /* Poppins-Bold.ttf in Resources */,
+				52AF2C15263374670026CCE5 /* Poppins-Light.ttf in Resources */,
+				52AF2C16263374670026CCE5 /* Poppins-Medium.ttf in Resources */,
+				52AF2C17263374670026CCE5 /* Poppins-SemiBold.ttf in Resources */,
 				52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */,
 				52AB59C42633651A0016A5B4 /* Assets.xcassets in Resources */,
 			);
@@ -270,7 +302,6 @@
 				52AF2BEB263368380026CCE5 /* Extensions.swift in Sources */,
 				52AF2BD4263367200026CCE5 /* Injection.swift in Sources */,
 				52AF2BE4263368150026CCE5 /* HomeView.swift in Sources */,
-				52AB59C2263365190016A5B4 /* ContentView.swift in Sources */,
 				52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +489,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52AF2BF9263370880026CCE5 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		52AF2BFB263370880026CCE5 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52AB59B4263365190016A5B4 /* Project object */;
 }

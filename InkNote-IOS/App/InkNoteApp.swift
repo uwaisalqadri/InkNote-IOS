@@ -11,7 +11,7 @@ import SwiftUI
 struct InkNoteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
