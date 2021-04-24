@@ -16,25 +16,23 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                ScrollView {
-                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                        ForEach(1..<100) {_ in
-                            NoteRow()
-                        }
-                    }.padding()
-                }.padding(.top, 10)
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        ExpandableFab(show: $show)
+        ZStack {
+            ScrollView {
+                menuButton
+                LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
+                    ForEach(1..<100) {_ in
+                        NoteRow()
                     }
-                    .padding([.leading, .trailing, .bottom], 30)
-                }
+                }.padding()
             }
-            .navigationBarItems(leading: menuButton)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    ExpandableFab(show: $show)
+                }
+                .padding([.leading, .trailing, .bottom], 30)
+            }
         }
     }
 }
@@ -45,7 +43,7 @@ extension HomeView {
     
     var menuButton: some View {
         VStack {
-            Spacer(minLength: 45)
+            Spacer(minLength: 35)
             HStack {
                 Button(action: {
                     print("Button menu")
@@ -65,7 +63,10 @@ extension HomeView {
                 )
                 Text("InkNote")
                     .font(.custom("Poppins-Bold", size: 30))
-            }
+                
+                Spacer()
+                
+            }.padding(.leading, 20)
         }
     }
 }
