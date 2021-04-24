@@ -130,6 +130,7 @@ struct ExpandableFab: View {
             }) {
                 Image("AddIcon")
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 25, height: 25)
                     .padding(22)
             }
