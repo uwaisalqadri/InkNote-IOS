@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct WriteView: View {
+    
+    @StateObject var viewModel = WriteViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField("Title", text: $viewModel.title)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .frame(height: 5)
+                .padding(.leading, 20)
+            
+            TextField("Description", text: $viewModel.description)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .frame(height: 5)
+                .padding(.leading, 20)
+        }
     }
 }
 

@@ -28,6 +28,8 @@
 		52AF2C16263374670026CCE5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C07263372BB0026CCE5 /* Poppins-Medium.ttf */; };
 		52AF2C17263374670026CCE5 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */; };
 		52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2C1D2633C8110026CCE5 /* NoteRow.swift */; };
+		52D12C7226346A3D00629F02 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = 52D12C7126346A3D00629F02 /* NavigationStack */; };
+		52D12C7526346DEE00629F02 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D12C7426346DEE00629F02 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,7 @@
 		52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		52AF2C0A263372BB0026CCE5 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		52AF2C1D2633C8110026CCE5 /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		52D12C7426346DEE00629F02 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52AF2BFC263370880026CCE5 /* RealmSwift in Frameworks */,
+				52D12C7226346A3D00629F02 /* NavigationStack in Frameworks */,
 				52AF2BFA263370880026CCE5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +176,7 @@
 			children = (
 				52AF2BE3263368150026CCE5 /* HomeView.swift */,
 				52AF2BE7263368210026CCE5 /* HomeViewModel.swift */,
+				52D12C7426346DEE00629F02 /* HomeRouter.swift */,
 				52AF2C1D2633C8110026CCE5 /* NoteRow.swift */,
 			);
 			path = Home;
@@ -233,6 +238,7 @@
 			packageProductDependencies = (
 				52AF2BF9263370880026CCE5 /* Realm */,
 				52AF2BFB263370880026CCE5 /* RealmSwift */,
+				52D12C7126346A3D00629F02 /* NavigationStack */,
 			);
 			productName = "InkNote-IOS";
 			productReference = 52AB59BC263365190016A5B4 /* InkNote-IOS.app */;
@@ -263,6 +269,7 @@
 			mainGroup = 52AB59B3263365190016A5B4;
 			packageReferences = (
 				52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				52D12C7026346A3C00629F02 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
 			);
 			productRefGroup = 52AB59BD263365190016A5B4 /* Products */;
 			projectDirPath = "";
@@ -303,6 +310,7 @@
 				52AF2BF42633690B0026CCE5 /* Note.swift in Sources */,
 				52AF2BDB263367E20026CCE5 /* WriteViewModel.swift in Sources */,
 				52AF2BF1263368F60026CCE5 /* LocalDataSource.swift in Sources */,
+				52D12C7526346DEE00629F02 /* HomeRouter.swift in Sources */,
 				52AF2BEB263368380026CCE5 /* Extensions.swift in Sources */,
 				52AF2BD4263367200026CCE5 /* Injection.swift in Sources */,
 				52AF2BE4263368150026CCE5 /* HomeView.swift in Sources */,
@@ -503,6 +511,14 @@
 				minimumVersion = 10.7.3;
 			};
 		};
+		52D12C7026346A3C00629F02 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -515,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		52D12C7126346A3D00629F02 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52D12C7026346A3C00629F02 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

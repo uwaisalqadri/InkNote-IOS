@@ -7,14 +7,7 @@
 
 import SwiftUI
 
-struct WriteViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct WriteViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        WriteViewModel()
-    }
+class WriteViewModel: ObservableObject {
+    @Published var title = "Today is a great day"
+    @Published var description = "I love making cookies"
 }

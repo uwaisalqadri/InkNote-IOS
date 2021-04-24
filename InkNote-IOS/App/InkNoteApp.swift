@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 @main
 struct InkNoteApp: App {

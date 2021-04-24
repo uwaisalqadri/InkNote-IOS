@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct HomeView: View {
     
+    @EnvironmentObject var navigationStack: NavigationStack
     @State var show = false
     
     let columns = [
@@ -20,7 +22,7 @@ struct HomeView: View {
             ScrollView {
                 menuButton
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                    ForEach(1..<100) {_ in
+                    ForEach(1..<10) {_ in
                         NoteRow()
                     }
                 }.padding()
@@ -29,7 +31,9 @@ struct HomeView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    ExpandableFab(show: $show)
+                    NavigationStackView {
+                        ExpandableFab(show: $show, router: HomeRouter(navStack: navigationStack))
+                    }
                 }
                 .padding([.leading, .trailing, .bottom], 30)
             }
@@ -74,13 +78,13 @@ extension HomeView {
 struct ExpandableFab: View {
     
     @Binding var show: Bool
+    let router: HomeRouter
     
     var body: some  View {
         VStack {
-            
             if self.show {
                 Button(action: {
-                    // navigate to write view
+                    router.toWrite()
                 }) {
                     Image("WriteIcon")
                         .frame(width: 10, height: 10)
