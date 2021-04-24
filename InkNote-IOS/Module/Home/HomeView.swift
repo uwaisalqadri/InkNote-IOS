@@ -11,14 +11,20 @@ struct HomeView: View {
     
     @State var show = false
     
+    let columns = [
+        GridItem(.adaptive(minimum: 120), spacing: 20, alignment: .center)
+    ]
+    
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    ForEach(1..<100) {_ in
-                        Text("Halo")
-                    }
-                }
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
+                        ForEach(1..<100) {_ in
+                            NoteRow()
+                        }
+                    }.padding()
+                }.padding(.top, 10)
                 VStack {
                     Spacer()
                     HStack {
@@ -44,20 +50,19 @@ extension HomeView {
                 Button(action: {
                     print("Button menu")
                 }) {
-                    VStack {
-                        Image("MenuIconLight")
-                            .frame(width: 41, height: 41, alignment: .center)
-                    }
-                    .background(Color.white)
+                    Image("MenuIconLight")
+                        .frame(width: 41, height: 41, alignment: .center)
                 }
-                .overlay (
-                    RoundedRectangle(cornerRadius: 10)
-                        // .fill(Color.white)
-                        .stroke(Color.black, lineWidth: 2)
-                        .shadow(color: .black, radius: 2, x: 0, y: 4)
+                .background (
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                            .shadow(color: .black, radius: 3, x: 0, y: 4)
                         
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                    }
                 )
-                .background(Color.white)
                 Text("InkNote")
                     .font(.custom("Poppins-Bold", size: 30))
             }
