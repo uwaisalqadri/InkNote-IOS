@@ -14,16 +14,21 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Text("Hello world")
+                ScrollView {
+                    ForEach(1..<100) {_ in
+                        Text("Halo")
+                    }
+                }
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
                         ExpandableFab(show: $show)
-                    }.padding([.leading, .trailing], 30)
+                    }
+                    .padding([.leading, .trailing, .bottom], 30)
                 }
             }
-                .navigationBarItems(leading: menuButton)
+            .navigationBarItems(leading: menuButton)
         }
     }
 }
@@ -38,17 +43,19 @@ extension HomeView {
             HStack {
                 Button(action: {
                     print("Button menu")
-                }, label: {
+                }) {
                     VStack {
                         Image("MenuIconLight")
                             .frame(width: 41, height: 41, alignment: .center)
-                    }.background(Color.white)
-                })
-                .overlay(
+                    }
+                    .background(Color.white)
+                }
+                .overlay (
                     RoundedRectangle(cornerRadius: 10)
+                        // .fill(Color.white)
                         .stroke(Color.black, lineWidth: 2)
                         .shadow(color: .black, radius: 2, x: 0, y: 4)
-                        .foregroundColor(.white)
+                        
                 )
                 .background(Color.white)
                 Text("InkNote")

@@ -27,6 +27,7 @@
 		52AF2C15263374670026CCE5 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */; };
 		52AF2C16263374670026CCE5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C07263372BB0026CCE5 /* Poppins-Medium.ttf */; };
 		52AF2C17263374670026CCE5 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */; };
+		52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2C1D2633C8110026CCE5 /* NoteRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		52AF2C08263372BB0026CCE5 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		52AF2C09263372BB0026CCE5 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		52AF2C0A263372BB0026CCE5 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		52AF2C1D2633C8110026CCE5 /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				52AF2BE3263368150026CCE5 /* HomeView.swift */,
 				52AF2BE7263368210026CCE5 /* HomeViewModel.swift */,
+				52AF2C1D2633C8110026CCE5 /* NoteRow.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52AF2BD8263367AE0026CCE5 /* WriteView.swift in Sources */,
+				52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */,
 				52AF2BEE263368440026CCE5 /* Constants.swift in Sources */,
 				52AF2BE8263368210026CCE5 /* HomeViewModel.swift in Sources */,
 				52AF2BDE263367F20026CCE5 /* DetailView.swift in Sources */,
