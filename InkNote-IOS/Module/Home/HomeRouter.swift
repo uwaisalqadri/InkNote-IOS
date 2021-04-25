@@ -6,17 +6,13 @@
 //
 
 import Foundation
-import NavigationStack
+import SwiftUI
 
 class HomeRouter {
-    private let navStack: NavigationStack
-    
-    init(navStack: NavigationStack) {
-        self.navStack = navStack
-    }
-    
-    func toWrite() {
-        self.navStack.push(WriteView())
+    func makeWriteView(for note: Note) -> some View {
+        let repository = Injection.init().provideRepository()
+        let viewModel = WriteViewModel(repository: repository)
+        return WriteView(viewModel: viewModel)
     }
 }
 

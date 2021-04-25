@@ -9,23 +9,21 @@ import SwiftUI
 
 struct NoteRow: View {
     
-    // let note: Note
+    let note: Note
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Pergi ke pasar membeli sayur")
+            Text(note.title)
                 .font(.custom("Poppins-SemiBold", size: 20))
-            Text("Senin, 12 agustus 2021")
+            Text(note.date)
                 .font(.custom("Poppins-Medium", size: 12))
-            Text("Membeli makanan kucing dan peralatan lainnya, Membeli makanan kucing dan peralatan lainnya, Membeli makanan kucing dan peralatan lainnya")
+            Text(note.desc)
                 .font(.custom("Poppins-Medium", size: 15))
                 .padding(.top, 10)
         }
         .padding()
         .background(
             ZStack {
-//                RoundedRectangle(cornerRadius: 14)
-//                    .stroke(Color.black, lineWidth: 3)
                 RoundedRectangle(cornerRadius: 14)
                     .fill(Color.white)
                     .shadow(radius: 3, x: 0, y: 4)
@@ -34,8 +32,8 @@ struct NoteRow: View {
     }
 }
 
-struct NoteRow_Previews: PreviewProvider {
-    static var previews: some View {
-        NoteRow().previewLayout(.sizeThatFits)
-    }
-}
+//struct NoteRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NoteRow().previewLayout(.sizeThatFits)
+//    }
+//}

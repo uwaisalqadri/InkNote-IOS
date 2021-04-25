@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var viewModel: HomeViewModel
     @State var show = false
     
     let columns = [
@@ -21,8 +22,8 @@ struct HomeView: View {
                 ScrollView {
                     menuButton
                     LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                        ForEach(1..<10) {_ in
-                            NoteRow()
+                        ForEach(self.viewModel.notes) { note in
+                            NoteRow(note: note)
                         }
                     }.padding()
                 }
@@ -30,12 +31,15 @@ struct HomeView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ExpandableFab(show: $show)
+                        ExpandableFab(show: $show, viewModel: self.viewModel)
                     }
                     .padding([.leading, .trailing, .bottom], 30)
                 }
             }
             .navigationBarHidden(true)
+            .onAppear {
+                viewModel.getNotes()
+            }
         }
     }
 }
@@ -74,11 +78,12 @@ extension HomeView {
 struct ExpandableFab: View {
     
     @Binding var show: Bool
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some  View {
         VStack {
             if self.show {
-                NavigationLink(destination: WriteView()) {
+                self.viewModel.toWriteView(for: nil) {
                     Image("WriteIcon")
                         .frame(width: 10, height: 10)
                         .padding(22)
@@ -151,8 +156,8 @@ struct ExpandableFab: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

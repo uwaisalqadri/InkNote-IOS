@@ -8,8 +8,8 @@
 import Foundation
 import RealmSwift
 
-public class Note: Object {
-    @objc dynamic var id: Int = 0
+public class Note: Object, Identifiable {
+    @objc dynamic public var id = 0
     @objc dynamic var title: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var date: String = ""
@@ -18,5 +18,14 @@ public class Note: Object {
     
     public override class func primaryKey() -> String? {
         return "id"
+    }
+    
+    func IncrementaID() -> Int{
+        let realm = try! Realm()
+        if let retNext = realm.objects(Note.self).sorted(byKeyPath: "id").first?.id {
+            return retNext + 1
+        }else {
+            return 1
+        }
     }
 }

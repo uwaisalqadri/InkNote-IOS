@@ -12,7 +12,8 @@ import NavigationStack
 struct InkNoteApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            let homeViewModel = HomeViewModel(repository: Injection.init().provideRepository())
+            HomeView().environmentObject(homeViewModel)
         }
     }
 }

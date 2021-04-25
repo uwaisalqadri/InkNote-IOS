@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WriteView: View {
     
-    @StateObject var viewModel = WriteViewModel()
+    @ObservedObject var viewModel: WriteViewModel
     @State var isEditable = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -17,7 +17,7 @@ struct WriteView: View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Title", text: $viewModel.title)
+                    TextField("Title", text: $viewModel.note.title)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .frame(height: 5)
@@ -27,7 +27,7 @@ struct WriteView: View {
                 }
                 
                 HStack {
-                    MultilineTextField(txt: $viewModel.description, isEdit: $isEditable, placeholder: "Description")
+                    MultilineTextField(txt: $viewModel.note.desc, isEdit: $isEditable, placeholder: "Description")
                         .padding([.leading, .trailing], 17)
                 }
                 
@@ -81,13 +81,20 @@ extension WriteView {
     
     var trailingItem: some View {
         Button(action: {
-            // MARK: -- set true to editable text else false
             isEditable.toggle()
         }) {
             if isEditable {
-                Image(systemName: "checkmark")
-                    .padding()
-                    .foregroundColor(.black)
+                Button(action: {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd/MM/yyyy"
+                    viewModel.note.date = dateFormatter.string(from: Date())
+                    viewModel.saveNote(from: viewModel.note)
+                    if viewModel.isSaved == true { self.presentationMode.wrappedValue.dismiss() }
+                }) {
+                    Image(systemName: "checkmark")
+                        .padding()
+                        .foregroundColor(.black)
+                }
             } else {
                 Image(systemName: "highlighter")
                     .padding()
@@ -104,8 +111,8 @@ extension WriteView {
     }
 }
 
-struct WriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        WriteView()
-    }
-}
+//struct WriteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WriteView()
+//    }
+//}
