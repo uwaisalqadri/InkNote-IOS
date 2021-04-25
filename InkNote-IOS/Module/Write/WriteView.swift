@@ -89,7 +89,7 @@ extension WriteView {
                     dateFormatter.dateFormat = "dd/MM/yyyy"
                     viewModel.note.date = dateFormatter.string(from: Date())
                     viewModel.saveNote(from: viewModel.note)
-                    if viewModel.isSaved == true { self.presentationMode.wrappedValue.dismiss() }
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "checkmark")
                         .padding()

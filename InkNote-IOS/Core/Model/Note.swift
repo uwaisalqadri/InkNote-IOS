@@ -20,12 +20,14 @@ public class Note: Object, Identifiable {
         return "id"
     }
     
-    func IncrementaID() -> Int{
-        let realm = try! Realm()
-        if let retNext = realm.objects(Note.self).sorted(byKeyPath: "id").first?.id {
-            return retNext + 1
-        }else {
-            return 1
-        }
-    }
+//    func IncrementaID() -> Int {
+//        let realm = try! Realm()
+//        if let retNext = realm.objects(Note.self).map{ $0.id }.maxE {
+//            return retNext + 1
+//        }else {
+//            return 1
+//        }
+//    }
+    
+    func nextId() -> Int { return (realm?.objects(Note.self).map{$0.id}.max() ?? 0) + 1 }
 }
