@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F652635AF96000C4634 /* MultilineTextField.swift */; };
 		52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB59BF263365190016A5B4 /* InkNoteApp.swift */; };
 		52AB59C42633651A0016A5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C32633651A0016A5B4 /* Assets.xcassets */; };
 		52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522C0F652635AF96000C4634 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		52AB59BC263365190016A5B4 /* InkNote-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InkNote-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AB59BF263365190016A5B4 /* InkNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkNoteApp.swift; sourceTree = "<group>"; };
 		52AB59C32633651A0016A5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				52AF2BD7263367AE0026CCE5 /* WriteView.swift */,
 				52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */,
+				522C0F652635AF96000C4634 /* MultilineTextField.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */,
 				52AF2BD8263367AE0026CCE5 /* WriteView.swift in Sources */,
 				52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */,
 				52AF2BEE263368440026CCE5 /* Constants.swift in Sources */,

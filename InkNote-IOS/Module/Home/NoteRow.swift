@@ -24,8 +24,8 @@ struct NoteRow: View {
         .padding()
         .background(
             ZStack {
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color.black, lineWidth: 3)
+//                RoundedRectangle(cornerRadius: 14)
+//                    .stroke(Color.black, lineWidth: 3)
                 RoundedRectangle(cornerRadius: 14)
                     .fill(Color.white)
                     .shadow(radius: 5)

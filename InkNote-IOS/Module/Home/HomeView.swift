@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct HomeView: View {
     
-    @EnvironmentObject var navigationStack: NavigationStack
     @State var show = false
     
     let columns = [
@@ -18,25 +16,26 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        ZStack {
-            ScrollView {
-                menuButton
-                LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                    ForEach(1..<10) {_ in
-                        NoteRow()
-                    }
-                }.padding()
-            }
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    NavigationStackView {
-                        ExpandableFab(show: $show, router: HomeRouter(navStack: navigationStack))
-                    }
+        NavigationView {
+            ZStack {
+                ScrollView {
+                    menuButton
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
+                        ForEach(1..<10) {_ in
+                            NoteRow()
+                        }
+                    }.padding()
                 }
-                .padding([.leading, .trailing, .bottom], 30)
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        ExpandableFab(show: $show)
+                    }
+                    .padding([.leading, .trailing, .bottom], 30)
+                }
             }
+            .navigationBarHidden(true)
         }
     }
 }
@@ -58,8 +57,8 @@ extension HomeView {
                 .background (
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                            .shadow(color: .black, radius: 3, x: 0, y: 4)
+//                            .stroke(Color.black, lineWidth: 2)
+                            .shadow(radius: 3, x: 0, y: 4)
                         
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color.white)
@@ -78,14 +77,11 @@ extension HomeView {
 struct ExpandableFab: View {
     
     @Binding var show: Bool
-    let router: HomeRouter
     
     var body: some  View {
         VStack {
             if self.show {
-                Button(action: {
-                    router.toWrite()
-                }) {
+                NavigationLink(destination: WriteView()) {
                     Image("WriteIcon")
                         .frame(width: 10, height: 10)
                         .padding(22)

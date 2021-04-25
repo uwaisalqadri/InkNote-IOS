@@ -8,6 +8,6 @@
 import SwiftUI
 
 class WriteViewModel: ObservableObject {
-    @Published var title = "Today is a great day"
-    @Published var description = "I love making cookies"
+    @Published var title = ""
+    @Published var description = ""
 }

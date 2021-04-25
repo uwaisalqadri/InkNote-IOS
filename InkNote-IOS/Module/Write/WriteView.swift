@@ -10,21 +10,89 @@ import SwiftUI
 struct WriteView: View {
     
     @StateObject var viewModel = WriteViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        VStack {
-            TextField("Title", text: $viewModel.title)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .frame(height: 5)
-                .padding(.leading, 20)
-            
-            TextField("Description", text: $viewModel.description)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .frame(height: 5)
-                .padding(.leading, 20)
+        NavigationView {
+            VStack {
+                HStack {
+                    TextField("Title", text: $viewModel.title)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .frame(height: 5)
+                        .padding(.leading, 20)
+                        .padding(.bottom, 8)
+                        .font(.custom("Poppins-SemiBold", size: 30))
+                }
+                
+                HStack {
+                    MultilineTextField(txt: $viewModel.description, placeholder: "Description")
+                        .padding([.leading, .trailing], 17)
+                }
+                
+                Spacer()
+                
+                HStack {
+                    Button(action: {
+                        print("Undo")
+                    }) {
+                        Image(systemName: "backward.fill")
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.black)
+                    }
+                    
+                    Button(action: {
+                        print("Redo")
+                    }) {
+                        Image(systemName: "forward.fill")
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.black)
+                    }
+                }.padding(.bottom, 20)
+            }
+            .navigationBarItems(
+                leading: leadingItem,
+                trailing: trailingItem
+            )
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+    }
+}
+
+extension WriteView {
+    
+    var leadingItem: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "chevron.left")
+                .padding([.leading, .trailing], 20)
+                .padding([.top, .bottom], 17)
+                .foregroundColor(.black)
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.white)
+                .shadow(radius: 3, x: 0, y: 4)
+        )
+    }
+    
+    var trailingItem: some View {
+        Button(action: {
+            // MARK: -- set true to editable text else false
+        }) {
+            Image(systemName: "highlighter")
+                .padding()
+                .foregroundColor(.black)
+            
+            // else "checkmark"
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.white)
+                .shadow(radius: 3, x: 0, y: 4)
+        )
     }
 }
 
