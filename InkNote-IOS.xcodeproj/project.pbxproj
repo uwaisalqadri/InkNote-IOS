@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F652635AF96000C4634 /* MultilineTextField.swift */; };
+		522C0F692635BB4F000C4634 /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F682635BB4F000C4634 /* AddLinkView.swift */; };
+		522C0F6E2635BEE4000C4634 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F6D2635BEE4000C4634 /* NoteRepository.swift */; };
+		522C0F712635C0E9000C4634 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F702635C0E9000C4634 /* CustomError.swift */; };
 		52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB59BF263365190016A5B4 /* InkNoteApp.swift */; };
 		52AB59C42633651A0016A5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C32633651A0016A5B4 /* Assets.xcassets */; };
 		52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		522C0F652635AF96000C4634 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		522C0F682635BB4F000C4634 /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
+		522C0F6D2635BEE4000C4634 /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
+		522C0F702635C0E9000C4634 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		52AB59BC263365190016A5B4 /* InkNote-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InkNote-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AB59BF263365190016A5B4 /* InkNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkNoteApp.swift; sourceTree = "<group>"; };
 		52AB59C32633651A0016A5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522C0F6C2635BE92000C4634 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				522C0F6D2635BEE4000C4634 /* NoteRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		52AB59B3263365190016A5B4 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +138,7 @@
 			children = (
 				52AF2BD6263367540026CCE5 /* Model */,
 				52AB59D5263365FE0016A5B4 /* Data Source */,
+				522C0F6C2635BE92000C4634 /* Repository */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -133,6 +148,7 @@
 			children = (
 				52AF2BEA263368380026CCE5 /* Extensions.swift */,
 				52AF2BED263368440026CCE5 /* Constants.swift */,
+				522C0F702635C0E9000C4634 /* CustomError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -197,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				52AF2BD7263367AE0026CCE5 /* WriteView.swift */,
+				522C0F682635BB4F000C4634 /* AddLinkView.swift */,
 				52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */,
 				522C0F652635AF96000C4634 /* MultilineTextField.swift */,
 			);
@@ -305,9 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */,
+				522C0F6E2635BEE4000C4634 /* NoteRepository.swift in Sources */,
 				52AF2BD8263367AE0026CCE5 /* WriteView.swift in Sources */,
 				52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */,
 				52AF2BEE263368440026CCE5 /* Constants.swift in Sources */,
+				522C0F712635C0E9000C4634 /* CustomError.swift in Sources */,
 				52AF2BE8263368210026CCE5 /* HomeViewModel.swift in Sources */,
 				52AF2BDE263367F20026CCE5 /* DetailView.swift in Sources */,
 				52AF2BE1263368050026CCE5 /* DetailViewModel.swift in Sources */,
@@ -318,6 +337,7 @@
 				52AF2BEB263368380026CCE5 /* Extensions.swift in Sources */,
 				52AF2BD4263367200026CCE5 /* Injection.swift in Sources */,
 				52AF2BE4263368150026CCE5 /* HomeView.swift in Sources */,
+				522C0F692635BB4F000C4634 /* AddLinkView.swift in Sources */,
 				52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

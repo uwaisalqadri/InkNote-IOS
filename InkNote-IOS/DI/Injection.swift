@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
+
+final class Injection: NSObject {
+    
+    private func provideRepository() -> NoteRepositoryProtocol {
+        let realm = try? Realm()
+        let local: LocalDataSource = LocalDataSource.sharedInstance(realm)
+        return NoteRepository.sharedInstance(local)
+    }
+}

@@ -10,6 +10,7 @@ import SwiftUI
 struct WriteView: View {
     
     @StateObject var viewModel = WriteViewModel()
+    @State var isEditable = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -26,7 +27,7 @@ struct WriteView: View {
                 }
                 
                 HStack {
-                    MultilineTextField(txt: $viewModel.description, placeholder: "Description")
+                    MultilineTextField(txt: $viewModel.description, isEdit: $isEditable, placeholder: "Description")
                         .padding([.leading, .trailing], 17)
                 }
                 
@@ -81,10 +82,17 @@ extension WriteView {
     var trailingItem: some View {
         Button(action: {
             // MARK: -- set true to editable text else false
+            isEditable.toggle()
         }) {
-            Image(systemName: "highlighter")
-                .padding()
-                .foregroundColor(.black)
+            if isEditable {
+                Image(systemName: "checkmark")
+                    .padding()
+                    .foregroundColor(.black)
+            } else {
+                Image(systemName: "highlighter")
+                    .padding()
+                    .foregroundColor(.black)
+            }
             
             // else "checkmark"
         }

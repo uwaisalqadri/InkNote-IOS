@@ -28,7 +28,7 @@ struct NoteRow: View {
 //                    .stroke(Color.black, lineWidth: 3)
                 RoundedRectangle(cornerRadius: 14)
                     .fill(Color.white)
-                    .shadow(radius: 5)
+                    .shadow(radius: 3, x: 0, y: 4)
             }
         )
     }

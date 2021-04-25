@@ -57,11 +57,8 @@ extension HomeView {
                 .background (
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-//                            .stroke(Color.black, lineWidth: 2)
-                            .shadow(radius: 3, x: 0, y: 4)
-                        
-                        RoundedRectangle(cornerRadius: 10)
                             .fill(Color.white)
+                            .shadow(radius: 3, x: 0, y: 4)
                     }
                 )
                 Text("InkNote")
