@@ -11,6 +11,7 @@
 		522C0F692635BB4F000C4634 /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F682635BB4F000C4634 /* AddLinkView.swift */; };
 		522C0F6E2635BEE4000C4634 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F6D2635BEE4000C4634 /* NoteRepository.swift */; };
 		522C0F712635C0E9000C4634 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F702635C0E9000C4634 /* CustomError.swift */; };
+		524346A726366405007EFB08 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 524346A626366405007EFB08 /* Grid */; };
 		52AB59C0263365190016A5B4 /* InkNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB59BF263365190016A5B4 /* InkNoteApp.swift */; };
 		52AB59C42633651A0016A5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C32633651A0016A5B4 /* Assets.xcassets */; };
 		52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */; };
@@ -72,6 +73,7 @@
 			files = (
 				52AF2BFC263370880026CCE5 /* RealmSwift in Frameworks */,
 				52D12C7226346A3D00629F02 /* NavigationStack in Frameworks */,
+				524346A726366405007EFB08 /* Grid in Frameworks */,
 				52AF2BFA263370880026CCE5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +261,7 @@
 				52AF2BF9263370880026CCE5 /* Realm */,
 				52AF2BFB263370880026CCE5 /* RealmSwift */,
 				52D12C7126346A3D00629F02 /* NavigationStack */,
+				524346A626366405007EFB08 /* Grid */,
 			);
 			productName = "InkNote-IOS";
 			productReference = 52AB59BC263365190016A5B4 /* InkNote-IOS.app */;
@@ -290,6 +293,7 @@
 			packageReferences = (
 				52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				52D12C7026346A3C00629F02 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+				524346A526366405007EFB08 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
 			);
 			productRefGroup = 52AB59BD263365190016A5B4 /* Products */;
 			projectDirPath = "";
@@ -527,6 +531,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		524346A526366405007EFB08 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-grid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -546,6 +558,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		524346A626366405007EFB08 /* Grid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524346A526366405007EFB08 /* XCRemoteSwiftPackageReference "swiftui-grid" */;
+			productName = Grid;
+		};
 		52AF2BF9263370880026CCE5 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52AF2BF8263370880026CCE5 /* XCRemoteSwiftPackageReference "realm-cocoa" */;

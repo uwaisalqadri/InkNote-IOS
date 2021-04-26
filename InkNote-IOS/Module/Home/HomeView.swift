@@ -6,27 +6,25 @@
 //
 
 import SwiftUI
+import Grid
 
 struct HomeView: View {
     
     @EnvironmentObject var viewModel: HomeViewModel
     @State var show = false
     
-    let columns = [
-        GridItem(.adaptive(minimum: 120), spacing: 20, alignment: .center)
-    ]
+    
+    let style = StaggeredGridStyle(.vertical, tracks: .min(150), spacing: 10)
     
     var body: some View {
         NavigationView {
             ZStack {
-                ScrollView {
+                ScrollView(style.axes) {
                     menuButton
-                    LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                        ForEach(self.viewModel.notes) { note in
-                            NoteRow(note: note)
-                        }
+                    Grid(self.viewModel.notes, id: \.self) { note in
+                        NoteRow(note: note)
                     }.padding()
-                }
+                }.gridStyle(self.style)
                 VStack {
                     Spacer()
                     HStack {

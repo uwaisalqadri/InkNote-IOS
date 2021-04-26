@@ -21,6 +21,7 @@ struct NoteRow: View {
                 .font(.custom("Poppins-Medium", size: 15))
                 .padding(.top, 10)
         }
+        .frame(maxWidth: .infinity)
         .padding()
         .background(
             ZStack {
