@@ -14,8 +14,6 @@ class WriteViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     @Published var note = Note()
-//    @Published var title = ""
-//    @Published var description = ""
     @Published var errorMessage: String = ""
     @Published var isSaved: Bool = false
     
@@ -36,6 +34,22 @@ class WriteViewModel: ObservableObject {
             }, receiveValue: { isSaved in
                 self.isSaved = isSaved
                 print("note save : \(isSaved)")
+            })
+            .store(in: &cancellables)
+    }
+    
+    func getNoteDetail(idNote: Int) {
+        repository.getNoteDetail(idNote: idNote)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure:
+                    self.errorMessage = String(describing: completion)
+                case .finished:
+                    print(completion)
+                }
+            }, receiveValue: { detailNote in
+                self.note = detailNote
             })
             .store(in: &cancellables)
     }

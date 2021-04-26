@@ -11,6 +11,8 @@ import Combine
 protocol NoteRepositoryProtocol {
     func getNotes() -> AnyPublisher<[Note], Error>
     
+    func getNoteDetail(idNote: Int) -> AnyPublisher<Note, Error>
+    
     func addNote(from note: Note) -> AnyPublisher<Bool, Error>
     
     func removeNote(idNote: String) -> AnyPublisher<Bool, Error>
@@ -33,6 +35,10 @@ final class NoteRepository: NSObject {
 extension NoteRepository: NoteRepositoryProtocol {
     func getNotes() -> AnyPublisher<[Note], Error> {
         return local.getNotes().eraseToAnyPublisher()
+    }
+    
+    func getNoteDetail(idNote: Int) -> AnyPublisher<Note, Error> {
+        return local.getNoteDetail(idNote: idNote).eraseToAnyPublisher()
     }
     
     func addNote(from note: Note) -> AnyPublisher<Bool, Error> {

@@ -19,10 +19,12 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ScrollView(style.axes) {
+                ScrollView {
                     menuButton
-                    Grid(self.viewModel.notes, id: \.self) { note in
-                        NoteRow(note: note)
+                    Grid(self.viewModel.notes, id: \.id) { note in
+                        viewModel.toWriteView(for: note.id, isEdit: false) {
+                            NoteRow(note: note)
+                        }.buttonStyle(PlainButtonStyle())
                     }.padding()
                 }.gridStyle(self.style)
                 VStack {
@@ -81,7 +83,7 @@ struct ExpandableFab: View {
     var body: some  View {
         VStack {
             if self.show {
-                self.viewModel.toWriteView(for: nil) {
+                self.viewModel.toWriteView(for: 0, isEdit: true) {
                     Image("WriteIcon")
                         .frame(width: 10, height: 10)
                         .padding(22)
@@ -137,7 +139,7 @@ struct ExpandableFab: View {
                 Image("AddIcon")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+                    .frame(width: 20, height: 20)
                     .padding(22)
             }
             .background(Color(red: 0.003, green: 0.85, blue: 0.774))
@@ -150,7 +152,7 @@ struct ExpandableFab: View {
                     .stroke(Color.black, lineWidth: 2)
                     .foregroundColor(.white)
             )
-        }.animation(.spring())
+        }.animation(.interactiveSpring())
     }
 }
 

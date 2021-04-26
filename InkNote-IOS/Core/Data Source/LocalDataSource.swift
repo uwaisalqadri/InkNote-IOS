@@ -13,6 +13,8 @@ protocol LocalDataSourceProtocol {
     
     func getNotes() -> AnyPublisher<[Note], Error>
     
+    func getNoteDetail(idNote: Int) -> AnyPublisher<Note, Error>
+    
     func addNote(from note: Note) -> AnyPublisher<Bool, Error>
     
     func removeNote(idNote: String) -> AnyPublisher<Bool, Error>
@@ -41,6 +43,17 @@ extension LocalDataSource: LocalDataSourceProtocol {
                         .sorted(byKeyPath: "title", ascending: true)
                 }()
                 completion(.success(notes.toArray(ofType: Note.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func getNoteDetail(idNote: Int) -> AnyPublisher<Note, Error> {
+        return Future<Note, Error> { completion in
+            if let realm = self.realm {
+                let note = realm.object(ofType: Note.self, forPrimaryKey: idNote)
+                completion(.success(note ?? Note()))
             } else {
                 completion(.failure(DatabaseError.invalidInstance))
             }

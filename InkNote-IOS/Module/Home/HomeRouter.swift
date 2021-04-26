@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 class HomeRouter {
-    func makeWriteView(for note: Note) -> some View {
+    func makeWriteView(for idNote: Int, isEditable: Bool) -> some View {
         let repository = Injection.init().provideRepository()
         let viewModel = WriteViewModel(repository: repository)
-        return WriteView(viewModel: viewModel)
+        return WriteView(viewModel: viewModel, isEditable: isEditable)
     }
 }
 

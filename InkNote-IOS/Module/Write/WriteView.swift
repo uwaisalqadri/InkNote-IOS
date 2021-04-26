@@ -10,20 +10,30 @@ import SwiftUI
 struct WriteView: View {
     
     @ObservedObject var viewModel: WriteViewModel
-    @State var isEditable = true
+    @State var isEditable: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Title", text: $viewModel.note.title)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .frame(height: 5)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 8)
-                        .font(.custom("Poppins-SemiBold", size: 30))
+                    if isEditable {
+                        TextField("Title", text: $viewModel.note.title)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .frame(height: 5)
+                            .padding(.leading, 20)
+                            .padding(.bottom, 8)
+                            .font(.custom("Poppins-SemiBold", size: 30))
+                    } else {
+                        Text(viewModel.note.title)
+                            .frame(height: 5)
+                            .padding(.leading, 20)
+                            .padding(.bottom, 8)
+                            .font(.custom("Poppins-SemiBold", size: 30))
+                    }
+                }.onAppear {
+                    viewModel.getNoteDetail(idNote: 0)
                 }
                 
                 HStack {
