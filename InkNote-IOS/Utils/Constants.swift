@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Constant {
+    
+}
+
+struct DateFormat {
+    static let completeFormat = "EEEE, dd MMMM yyyy"
+    static let basicFormat = "dd/MM/yy"
+}

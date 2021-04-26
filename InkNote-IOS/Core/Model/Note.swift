@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 public class Note: Object, Identifiable {
-    @objc dynamic public var id = 0
+    @objc dynamic public var id: Int = 0
     @objc dynamic var title: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var date: String = ""
@@ -20,14 +20,13 @@ public class Note: Object, Identifiable {
         return "id"
     }
     
-//    func IncrementaID() -> Int {
-//        let realm = try! Realm()
-//        if let retNext = realm.objects(Note.self).map{ $0.id }.maxE {
-//            return retNext + 1
-//        }else {
-//            return 1
-//        }
-//    }
-    
-    func nextId() -> Int { return (realm?.objects(Note.self).map{$0.id}.max() ?? 0) + 1 }
+    func autoIncrementId() -> Int {
+        let realm = try! Realm()
+        
+        if let retNext = realm.objects(Note.self).sorted(byKeyPath: "id").last?.id {
+            return retNext + 1
+        } else {
+            return 0
+        }
+    }
 }

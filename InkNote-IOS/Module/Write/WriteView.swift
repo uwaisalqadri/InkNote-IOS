@@ -86,7 +86,8 @@ extension WriteView {
             if isEditable {
                 Button(action: {
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd/MM/yyyy"
+                    dateFormatter.dateFormat = DateFormat.completeFormat
+                    viewModel.note.id = Note().autoIncrementId()
                     viewModel.note.date = dateFormatter.string(from: Date())
                     viewModel.saveNote(from: viewModel.note)
                     self.presentationMode.wrappedValue.dismiss()

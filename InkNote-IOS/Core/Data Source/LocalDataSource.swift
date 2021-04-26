@@ -16,6 +16,7 @@ protocol LocalDataSourceProtocol {
     func addNote(from note: Note) -> AnyPublisher<Bool, Error>
     
     func removeNote(idNote: String) -> AnyPublisher<Bool, Error>
+    
 }
 
 final class LocalDataSource: NSObject {
@@ -83,5 +84,4 @@ extension LocalDataSource: LocalDataSourceProtocol {
             }
         }.eraseToAnyPublisher()
     }
-
 }
