@@ -26,6 +26,7 @@ extension Realm {
             try block()
         } else {
             try write(block)
+            try commitWrite()
         }
     }
 }

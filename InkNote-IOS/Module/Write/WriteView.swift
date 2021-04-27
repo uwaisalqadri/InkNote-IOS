@@ -17,8 +17,8 @@ struct WriteView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                HStack {
+            VStack {
+                VStack(alignment: .leading) {
                     if isEditable {
                         TextField("Title", text: $viewModel.note.title)
                             .autocapitalization(.none)
@@ -35,8 +35,10 @@ struct WriteView: View {
                             .font(.custom("Poppins-SemiBold", size: 30))
                     }
                 }.onAppear {
-                    print("id to detail \(idNote)")
-                    viewModel.getNoteDetail(idNote: idNote)
+                    if idNote != 0 {
+                        print("id to detail \(idNote)")
+                        viewModel.getNoteDetail(idNote: idNote)
+                    }
                 }
                 
                 HStack {
@@ -105,9 +107,8 @@ extension WriteView {
         }) {
             if isEditable {
                 Button(action: {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = DateFormat.completeFormat
-                    viewModel.note.date = dateFormatter.string(from: Date())
+                    viewModel.note.id = (idNote == 0) ? Note().autoIncrementId() : idNote
+                    print(viewModel.note.id)
                     viewModel.saveNote(from: viewModel.note)
                     self.presentationMode.wrappedValue.dismiss()
                 }) {

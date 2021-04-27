@@ -11,11 +11,18 @@ struct NoteRow: View {
     
     let note: Note
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormat.completeFormat
+        return formatter
+    }
+
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(note.title)
                 .font(.custom("Poppins-SemiBold", size: 20))
-            Text(note.date)
+            Text(dateFormatter.string(from: note.date))
                 .font(.custom("Poppins-Medium", size: 12))
             Text(note.desc)
                 .font(.custom("Poppins-Medium", size: 15))
