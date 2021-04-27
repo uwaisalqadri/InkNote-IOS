@@ -12,7 +12,6 @@ import SwiftUI
 struct MultilineTextField: UIViewRepresentable {
     
     @Binding var txt: String
-    @Binding var isEdit: Bool
     var placeholder: String
     
     func makeCoordinator() -> MultilineTextField.Coordinator {
@@ -22,14 +21,14 @@ struct MultilineTextField: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UITextView {
         let text = UITextView()
-        text.isEditable = isEdit
+        text.isEditable = true
         text.isUserInteractionEnabled = true
         text.isScrollEnabled = true
         text.text = placeholder
         text.textColor = .gray
         text.autocapitalizationType = .none
         text.autocorrectionType = .no
-        text.font = UIFont(name: "Poppins-Medium", size: 20)
+        text.font = UIFont(name: "Poppins-Medium", size: 18)
         text.delegate = context.coordinator
         return text
     }

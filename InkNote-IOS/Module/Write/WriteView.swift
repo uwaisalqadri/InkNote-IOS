@@ -19,21 +19,12 @@ struct WriteView: View {
         NavigationView {
             VStack {
                 VStack(alignment: .leading) {
-                    if isEditable {
-                        TextField("Title", text: $viewModel.note.title)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .padding(.leading, 20)
-                            .font(.custom("Poppins-SemiBold", size: 30))
-                            .onReceive(Just(viewModel.note.title), perform: { _ in
-                                limitText(10)
-                            })
-                    } else {
-                        Text(viewModel.note.title)
-                            .frame(height: 5)
-                            .padding(.leading, 20)
-                            .font(.custom("Poppins-SemiBold", size: 30))
-                    }
+                    TextField("Title", text: $viewModel.note.title)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .disabled(!isEditable)
+                        .padding(.leading, 20)
+                        .font(.custom("Poppins-SemiBold", size: 23))
                 }.onAppear {
                     if idNote != 0 {
                         print("id to detail \(idNote)")
@@ -42,9 +33,13 @@ struct WriteView: View {
                 }
                 
                 HStack {
-                    MultilineTextField(txt: $viewModel.note.desc, isEdit: $isEditable, placeholder: "Description")
-                        .padding([.leading, .trailing], 17)
-                        .padding(.top)
+                    MultilineTextField(
+                        txt: $viewModel.note.desc,
+                        placeholder: (!isEditable) ? "Unready to edit" : "Ready to edit"
+                    )
+                    .disabled(!isEditable)
+                    .padding([.leading, .trailing], 17)
+                    .padding(.top)
                 }
                 
                 Spacer()
@@ -103,14 +98,16 @@ extension WriteView {
     
     var trailingItem: some View {
         Button(action: {
-            isEditable.toggle()
+            isEditable = true
         }) {
             if isEditable {
                 Button(action: {
-                    viewModel.note.id = (idNote == 0) ? Note().autoIncrementId() : idNote
-                    print(viewModel.note.id)
-                    viewModel.saveNote(from: viewModel.note)
+                    // viewModel.note.id = (idNote == 0) ? Note().autoIncrementId() : idNote
+                    print("note id: \(viewModel.note.id)")
+                    print("detail: \(viewModel.note)")
                     self.presentationMode.wrappedValue.dismiss()
+                    viewModel.saveNote(from: viewModel.note)
+                    // (idNote != 0) ? print("detail: \(viewModel.note)") : viewModel.saveNote(from: viewModel.note)
                 }) {
                     Image(systemName: "checkmark")
                         .padding()
@@ -121,8 +118,6 @@ extension WriteView {
                     .padding()
                     .foregroundColor(.black)
             }
-            
-            // else "checkmark"
         }
         .background(
             RoundedRectangle(cornerRadius: 12)
@@ -131,9 +126,3 @@ extension WriteView {
         )
     }
 }
-
-//struct WriteView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WriteView()
-//    }
-//}
