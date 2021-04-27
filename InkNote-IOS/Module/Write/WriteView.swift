@@ -26,16 +26,16 @@ struct WriteView: View {
                         .padding(.leading, 20)
                         .font(.custom("Poppins-SemiBold", size: 23))
                 }.onAppear {
+                    print("id to detail \(idNote)")
                     if idNote != 0 {
-                        print("id to detail \(idNote)")
                         viewModel.getNoteDetail(idNote: idNote)
                     }
                 }
                 
                 HStack {
                     MultilineTextField(
-                        txt: $viewModel.note.desc,
-                        placeholder: (!isEditable) ? "Unready to edit" : "Ready to edit"
+                        text: $viewModel.note.desc,
+                        placeholder: (!isEditable) ? "Unready to edit" : viewModel.note.desc
                     )
                     .disabled(!isEditable)
                     .padding([.leading, .trailing], 17)
@@ -102,12 +102,13 @@ extension WriteView {
         }) {
             if isEditable {
                 Button(action: {
-                    // viewModel.note.id = (idNote == 0) ? Note().autoIncrementId() : idNote
+                    if idNote == 0 {
+                        viewModel.note.id = Note().autoIncrementId()
+                    }
                     print("note id: \(viewModel.note.id)")
                     print("detail: \(viewModel.note)")
                     self.presentationMode.wrappedValue.dismiss()
                     viewModel.saveNote(from: viewModel.note)
-                    // (idNote != 0) ? print("detail: \(viewModel.note)") : viewModel.saveNote(from: viewModel.note)
                 }) {
                     Image(systemName: "checkmark")
                         .padding()

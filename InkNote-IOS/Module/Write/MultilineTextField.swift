@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MultilineTextField: UIViewRepresentable {
     
-    @Binding var txt: String
+    @Binding var text: String
     var placeholder: String
     
     func makeCoordinator() -> MultilineTextField.Coordinator {
@@ -44,7 +44,7 @@ struct MultilineTextField: UIViewRepresentable {
         }
         
         func textViewDidChange(_ textView: UITextView) {
-            self.parent.txt = textView.text
+            self.parent.text = textView.text
         }
         
         func textViewDidBeginEditing(_ textView: UITextView) {

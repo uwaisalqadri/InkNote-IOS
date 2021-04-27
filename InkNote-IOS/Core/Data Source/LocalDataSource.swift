@@ -40,7 +40,7 @@ extension LocalDataSource: LocalDataSourceProtocol {
             if let realm = self.realm {
                 let notes: Results<Note> = {
                     realm.objects(Note.self)
-                        .sorted(byKeyPath: "title", ascending: true)
+                        .sorted(byKeyPath: "id", ascending: false)
                 }()
                 completion(.success(notes.toArray(ofType: Note.self)))
             } else {
