@@ -6,39 +6,43 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WriteView: View {
     
+    let idNote: Int
     @ObservedObject var viewModel: WriteViewModel
     @State var isEditable: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     if isEditable {
                         TextField("Title", text: $viewModel.note.title)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                            .frame(height: 5)
                             .padding(.leading, 20)
-                            .padding(.bottom, 8)
                             .font(.custom("Poppins-SemiBold", size: 30))
+                            .onReceive(Just(viewModel.note.title), perform: { _ in
+                                limitText(10)
+                            })
                     } else {
                         Text(viewModel.note.title)
                             .frame(height: 5)
                             .padding(.leading, 20)
-                            .padding(.bottom, 8)
                             .font(.custom("Poppins-SemiBold", size: 30))
                     }
                 }.onAppear {
-                    viewModel.getNoteDetail(idNote: 0)
+                    print("id to detail \(idNote)")
+                    viewModel.getNoteDetail(idNote: idNote)
                 }
                 
                 HStack {
                     MultilineTextField(txt: $viewModel.note.desc, isEdit: $isEditable, placeholder: "Description")
                         .padding([.leading, .trailing], 17)
+                        .padding(.top)
                 }
                 
                 Spacer()
@@ -69,6 +73,12 @@ struct WriteView: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
+    
+    func limitText(_ upper: Int) {
+        if viewModel.note.title.count > upper {
+            viewModel.note.title = String(viewModel.note.title.prefix(upper))
+        }
+    }
 }
 
 extension WriteView {
@@ -97,7 +107,6 @@ extension WriteView {
                 Button(action: {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = DateFormat.completeFormat
-                    viewModel.note.id = Note().autoIncrementId()
                     viewModel.note.date = dateFormatter.string(from: Date())
                     viewModel.saveNote(from: viewModel.note)
                     self.presentationMode.wrappedValue.dismiss()

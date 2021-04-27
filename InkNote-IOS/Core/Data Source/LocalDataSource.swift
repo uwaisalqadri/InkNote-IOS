@@ -53,7 +53,12 @@ extension LocalDataSource: LocalDataSourceProtocol {
         return Future<Note, Error> { completion in
             if let realm = self.realm {
                 let note = realm.object(ofType: Note.self, forPrimaryKey: idNote)
-                completion(.success(note ?? Note()))
+                if realm.isInWriteTransaction {
+                    completion(.success(note ?? Note()))
+                } else {
+                    realm.beginWrite()
+                    completion(.success(note ?? Note()))
+                }
             } else {
                 completion(.failure(DatabaseError.invalidInstance))
             }
@@ -64,8 +69,8 @@ extension LocalDataSource: LocalDataSourceProtocol {
         return Future<Bool, Error> { completion in
             if let realm = self.realm {
                 do {
-                    try realm.write {
-                        realm.add(note, update: .all)
+                    try realm.safeWrite {
+                        realm.add(note, update: .modified)
                         completion(.success(true))
                     }
                 } catch {

@@ -40,12 +40,12 @@ class HomeViewModel: ObservableObject {
     }
     
     func toWriteView<Content: View>(
-        for idNote: Int?,
+        for idNote: Int,
         isEdit: Bool,
         @ViewBuilder content: () -> Content
     ) -> some View {
         NavigationLink(
-            destination: router.makeWriteView(for: idNote ?? 0, isEditable: isEdit)
+            destination: router.makeWriteView(for: idNote, isEditable: isEdit)
         ) { content() }
     }
 }

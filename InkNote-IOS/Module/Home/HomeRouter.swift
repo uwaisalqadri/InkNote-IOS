@@ -12,7 +12,7 @@ class HomeRouter {
     func makeWriteView(for idNote: Int, isEditable: Bool) -> some View {
         let repository = Injection.init().provideRepository()
         let viewModel = WriteViewModel(repository: repository)
-        return WriteView(viewModel: viewModel, isEditable: isEditable)
+        return WriteView(idNote: idNote, viewModel: viewModel, isEditable: isEditable)
     }
 }
 

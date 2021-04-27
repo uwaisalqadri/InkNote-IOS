@@ -49,6 +49,7 @@ class WriteViewModel: ObservableObject {
                     print(completion)
                 }
             }, receiveValue: { detailNote in
+                print(detailNote)
                 self.note = detailNote
             })
             .store(in: &cancellables)
