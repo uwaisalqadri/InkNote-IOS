@@ -34,8 +34,8 @@ struct WriteView: View {
                 
                 HStack {
                     MultilineTextField(
-                        text: $viewModel.note.desc,
-                        placeholder: (!isEditable) ? "Unready to edit" : viewModel.note.desc
+                        text: $viewModel.note.desc
+                        //placeholder: (isEditable) ? "Description" : viewModel.note.desc
                     )
                     .disabled(!isEditable)
                     .padding([.leading, .trailing], 17)
