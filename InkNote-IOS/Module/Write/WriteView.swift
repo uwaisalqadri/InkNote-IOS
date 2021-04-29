@@ -38,7 +38,6 @@ struct WriteView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding([.leading, .trailing], 17)
-                        .padding(.top)
                         .font(.custom("Poppins-Medium", size: 20))
                 }
                 
@@ -69,12 +68,6 @@ struct WriteView: View {
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-    }
-    
-    func limitText(_ upper: Int) {
-        if presenter.note.title.count > upper {
-            presenter.note.title = String(presenter.note.title.prefix(upper))
-        }
     }
 }
 
