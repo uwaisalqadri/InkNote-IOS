@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F652635AF96000C4634 /* MultilineTextField.swift */; };
 		522C0F692635BB4F000C4634 /* AddLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F682635BB4F000C4634 /* AddLinkView.swift */; };
 		522C0F6E2635BEE4000C4634 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F6D2635BEE4000C4634 /* NoteRepository.swift */; };
 		522C0F712635C0E9000C4634 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C0F702635C0E9000C4634 /* CustomError.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		522C0F652635AF96000C4634 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		522C0F682635BB4F000C4634 /* AddLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLinkView.swift; sourceTree = "<group>"; };
 		522C0F6D2635BEE4000C4634 /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 		522C0F702635C0E9000C4634 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 				52AF2BD7263367AE0026CCE5 /* WriteView.swift */,
 				522C0F682635BB4F000C4634 /* AddLinkView.swift */,
 				52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */,
-				522C0F652635AF96000C4634 /* MultilineTextField.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522C0F662635AF96000C4634 /* MultilineTextField.swift in Sources */,
 				522C0F6E2635BEE4000C4634 /* NoteRepository.swift in Sources */,
 				52AF2BD8263367AE0026CCE5 /* WriteView.swift in Sources */,
 				52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */,

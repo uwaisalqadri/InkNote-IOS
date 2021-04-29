@@ -33,13 +33,13 @@ struct WriteView: View {
                 }
                 
                 HStack {
-                    MultilineTextField(
-                        text: $viewModel.note.desc
-                        //placeholder: (isEditable) ? "Description" : viewModel.note.desc
-                    )
-                    .disabled(!isEditable)
-                    .padding([.leading, .trailing], 17)
-                    .padding(.top)
+                    TextEditor(text: $viewModel.note.desc)
+                        .disabled(!isEditable)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                        .padding([.leading, .trailing], 17)
+                        .padding(.top)
+                        .font(.custom("Poppins-Medium", size: 20))
                 }
                 
                 Spacer()
