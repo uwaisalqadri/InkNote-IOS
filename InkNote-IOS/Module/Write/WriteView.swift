@@ -11,7 +11,7 @@ import Combine
 struct WriteView: View {
     
     let idNote: Int
-    @ObservedObject var viewModel: WriteViewModel
+    @ObservedObject var presenter: WritePresenter
     @State var isEditable: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -19,7 +19,7 @@ struct WriteView: View {
         NavigationView {
             VStack {
                 VStack(alignment: .leading) {
-                    TextField("Title", text: $viewModel.note.title)
+                    TextField("Title", text: $presenter.note.title)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .disabled(!isEditable)
@@ -28,12 +28,12 @@ struct WriteView: View {
                 }.onAppear {
                     print("id to detail \(idNote)")
                     if idNote != 0 {
-                        viewModel.getNoteDetail(idNote: idNote)
+                        presenter.getNoteDetail(idNote: idNote)
                     }
                 }
                 
                 HStack {
-                    TextEditor(text: $viewModel.note.desc)
+                    TextEditor(text: $presenter.note.desc)
                         .disabled(!isEditable)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
@@ -72,8 +72,8 @@ struct WriteView: View {
     }
     
     func limitText(_ upper: Int) {
-        if viewModel.note.title.count > upper {
-            viewModel.note.title = String(viewModel.note.title.prefix(upper))
+        if presenter.note.title.count > upper {
+            presenter.note.title = String(presenter.note.title.prefix(upper))
         }
     }
 }
@@ -103,12 +103,12 @@ extension WriteView {
             if isEditable {
                 Button(action: {
                     if idNote == 0 {
-                        viewModel.note.id = Note().autoIncrementId()
+                        presenter.note.id = Note().autoIncrementId()
                     }
-                    print("note id: \(viewModel.note.id)")
-                    print("detail: \(viewModel.note)")
+                    print("note id: \(presenter.note.id)")
+                    print("detail: \(presenter.note)")
                     self.presentationMode.wrappedValue.dismiss()
-                    viewModel.saveNote(from: viewModel.note)
+                    presenter.saveNote(from: presenter.note)
                 }) {
                     Image(systemName: "checkmark")
                         .padding()

@@ -1,5 +1,5 @@
 //
-//  WriteViewModel.swift
+//  WritePresenter.swift
 //  InkNote-IOS
 //
 //  Created by Uwais Alqadri on 24/04/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-class WriteViewModel: ObservableObject {
+class WritePresenter: ObservableObject {
     
     private let repository: NoteRepositoryProtocol
     private var cancellables: Set<AnyCancellable> = []

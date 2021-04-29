@@ -10,7 +10,7 @@ import Grid
 
 struct HomeView: View {
     
-    @EnvironmentObject var viewModel: HomeViewModel
+    @EnvironmentObject var presenter: HomePresenter
     @State var show = false
     
     
@@ -21,8 +21,8 @@ struct HomeView: View {
             ZStack {
                 ScrollView {
                     menuButton
-                    Grid(self.viewModel.notes, id: \.id) { note in
-                        viewModel.toWriteView(for: note.id, isEdit: false) {
+                    Grid(self.presenter.notes, id: \.id) { note in
+                        presenter.toWriteView(for: note.id, isEdit: false) {
                             NoteRow(note: note)
                         }.buttonStyle(PlainButtonStyle())
                     }.padding()
@@ -31,14 +31,14 @@ struct HomeView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ExpandableFab(show: $show, viewModel: self.viewModel)
+                        ExpandableFab(show: $show, presenter: self.presenter)
                     }
                     .padding([.leading, .trailing, .bottom], 30)
                 }
             }
             .navigationBarHidden(true)
             .onAppear {
-                viewModel.getNotes()
+                presenter.getNotes()
             }
         }
     }
@@ -78,12 +78,12 @@ extension HomeView {
 struct ExpandableFab: View {
     
     @Binding var show: Bool
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var presenter: HomePresenter
     
     var body: some  View {
         VStack {
             if self.show {
-                self.viewModel.toWriteView(for: 0, isEdit: true) {
+                self.presenter.toWriteView(for: 0, isEdit: true) {
                     Image("WriteIcon")
                         .frame(width: 10, height: 10)
                         .padding(22)

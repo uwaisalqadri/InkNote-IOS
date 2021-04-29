@@ -16,11 +16,11 @@
 		52AB59C72633651A0016A5B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AB59C62633651A0016A5B4 /* Preview Assets.xcassets */; };
 		52AF2BD4263367200026CCE5 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BD3263367200026CCE5 /* Injection.swift */; };
 		52AF2BD8263367AE0026CCE5 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BD7263367AE0026CCE5 /* WriteView.swift */; };
-		52AF2BDB263367E20026CCE5 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */; };
+		52AF2BDB263367E20026CCE5 /* WritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BDA263367E20026CCE5 /* WritePresenter.swift */; };
 		52AF2BDE263367F20026CCE5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BDD263367F20026CCE5 /* DetailView.swift */; };
 		52AF2BE1263368050026CCE5 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BE0263368050026CCE5 /* DetailViewModel.swift */; };
 		52AF2BE4263368150026CCE5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BE3263368150026CCE5 /* HomeView.swift */; };
-		52AF2BE8263368210026CCE5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BE7263368210026CCE5 /* HomeViewModel.swift */; };
+		52AF2BE8263368210026CCE5 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BE7263368210026CCE5 /* HomePresenter.swift */; };
 		52AF2BEB263368380026CCE5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BEA263368380026CCE5 /* Extensions.swift */; };
 		52AF2BEE263368440026CCE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BED263368440026CCE5 /* Constants.swift */; };
 		52AF2BF1263368F60026CCE5 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AF2BF0263368F60026CCE5 /* LocalDataSource.swift */; };
@@ -47,11 +47,11 @@
 		52AB59C82633651A0016A5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52AF2BD3263367200026CCE5 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		52AF2BD7263367AE0026CCE5 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
-		52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		52AF2BDA263367E20026CCE5 /* WritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePresenter.swift; sourceTree = "<group>"; };
 		52AF2BDD263367F20026CCE5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		52AF2BE0263368050026CCE5 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		52AF2BE3263368150026CCE5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		52AF2BE7263368210026CCE5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		52AF2BE7263368210026CCE5 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		52AF2BEA263368380026CCE5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52AF2BED263368440026CCE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52AF2BF0263368F60026CCE5 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				52AF2BE3263368150026CCE5 /* HomeView.swift */,
-				52AF2BE7263368210026CCE5 /* HomeViewModel.swift */,
+				52AF2BE7263368210026CCE5 /* HomePresenter.swift */,
 				52D12C7426346DEE00629F02 /* HomeRouter.swift */,
 				52AF2C1D2633C8110026CCE5 /* NoteRow.swift */,
 			);
@@ -214,7 +214,7 @@
 			children = (
 				52AF2BD7263367AE0026CCE5 /* WriteView.swift */,
 				522C0F682635BB4F000C4634 /* AddLinkView.swift */,
-				52AF2BDA263367E20026CCE5 /* WriteViewModel.swift */,
+				52AF2BDA263367E20026CCE5 /* WritePresenter.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -327,11 +327,11 @@
 				52AF2C1E2633C8110026CCE5 /* NoteRow.swift in Sources */,
 				52AF2BEE263368440026CCE5 /* Constants.swift in Sources */,
 				522C0F712635C0E9000C4634 /* CustomError.swift in Sources */,
-				52AF2BE8263368210026CCE5 /* HomeViewModel.swift in Sources */,
+				52AF2BE8263368210026CCE5 /* HomePresenter.swift in Sources */,
 				52AF2BDE263367F20026CCE5 /* DetailView.swift in Sources */,
 				52AF2BE1263368050026CCE5 /* DetailViewModel.swift in Sources */,
 				52AF2BF42633690B0026CCE5 /* Note.swift in Sources */,
-				52AF2BDB263367E20026CCE5 /* WriteViewModel.swift in Sources */,
+				52AF2BDB263367E20026CCE5 /* WritePresenter.swift in Sources */,
 				52AF2BF1263368F60026CCE5 /* LocalDataSource.swift in Sources */,
 				52D12C7526346DEE00629F02 /* HomeRouter.swift in Sources */,
 				52AF2BEB263368380026CCE5 /* Extensions.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  HomePresenter.swift
 //  InkNote-IOS
 //
 //  Created by Uwais Alqadri on 24/04/21.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class HomeViewModel: ObservableObject {
+class HomePresenter: ObservableObject {
     
     private let router = HomeRouter()
     private let repository: NoteRepositoryProtocol
