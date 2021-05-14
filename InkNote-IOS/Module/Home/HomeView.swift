@@ -23,9 +23,11 @@ struct HomeView: View {
                     menuButton
                     Grid(self.presenter.notes, id: \.id) { note in
                         presenter.toWriteView(for: note.id, isEdit: false) {
-                            NoteRow(note: note)
-                        }.buttonStyle(PlainButtonStyle())
-                    }.padding()
+                            NoteRow(note: note, presenter: presenter)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    .padding()
                 }.gridStyle(self.style)
                 VStack {
                     Spacer()

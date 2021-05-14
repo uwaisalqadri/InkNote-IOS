@@ -70,7 +70,7 @@ extension LocalDataSource: LocalDataSourceProtocol {
             if let realm = self.realm {
                 do {
                     try realm.safeWrite {
-                        realm.add(note, update: .modified)
+                        realm.create(Note.self, value: note, update: .modified)
                         completion(.success(true))
                     }
                 } catch {

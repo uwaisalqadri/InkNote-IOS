@@ -47,7 +47,7 @@ struct WriteView: View {
                     Button(action: {
                         print("Undo")
                     }) {
-                        Image(systemName: "backward.fill")
+                        Image(systemName: "arrow.uturn.backward")
                             .frame(width: 30, height: 30)
                             .foregroundColor(.black)
                     }
@@ -55,7 +55,7 @@ struct WriteView: View {
                     Button(action: {
                         print("Redo")
                     }) {
-                        Image(systemName: "forward.fill")
+                        Image(systemName: "arrow.uturn.forward")
                             .frame(width: 30, height: 30)
                             .foregroundColor(.black)
                     }

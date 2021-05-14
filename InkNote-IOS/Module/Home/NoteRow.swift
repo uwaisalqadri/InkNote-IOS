@@ -9,7 +9,10 @@ import SwiftUI
 
 struct NoteRow: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    @State var isPresented = false
     let note: Note
+    var presenter: HomePresenter
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -33,10 +36,20 @@ struct NoteRow: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(colorScheme == .dark ? Color.black : Color.white)
                     .shadow(radius: 3, x: 0, y: 4)
             }
         )
+//        .onLongPressGesture {
+//            isPresented.toggle()
+//        }
+        .alert(isPresented: $isPresented) {
+            Alert(title: Text("Remove Note?"),
+                  primaryButton: .default(
+                    Text("Remove").foregroundColor(.red)) {
+                presenter.removeNote(idNote: String(note.id))
+                    }, secondaryButton: .cancel(Text("Dismiss")))
+        }
     }
 }
 
