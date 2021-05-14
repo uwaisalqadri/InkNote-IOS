@@ -39,22 +39,6 @@ class HomePresenter: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func removeNote(idNote: String) {
-        repository.removeNote(idNote: idNote)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure:
-                    self.errorMessage = String(describing: completion)
-                case .finished:
-                    print("Item Removed")
-                }
-            }, receiveValue: { note in
-                print("removed note \(note)")
-            })
-            .store(in: &cancellables)
-    }
-    
     func toWriteView<Content: View>(
         for idNote: Int,
         isEdit: Bool,

@@ -40,16 +40,6 @@ struct NoteRow: View {
                     .shadow(radius: 3, x: 0, y: 4)
             }
         )
-//        .onLongPressGesture {
-//            isPresented.toggle()
-//        }
-        .alert(isPresented: $isPresented) {
-            Alert(title: Text("Remove Note?"),
-                  primaryButton: .default(
-                    Text("Remove").foregroundColor(.red)) {
-                presenter.removeNote(idNote: String(note.id))
-                    }, secondaryButton: .cancel(Text("Dismiss")))
-        }
     }
 }
 

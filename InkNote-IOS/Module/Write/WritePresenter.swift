@@ -16,6 +16,7 @@ class WritePresenter: ObservableObject {
     @Published var note = Note()
     @Published var errorMessage: String = ""
     @Published var isSaved: Bool = false
+    @Published var isItemRemoved: Bool = false
     
     init(repository: NoteRepositoryProtocol) {
         self.repository = repository
@@ -51,6 +52,22 @@ class WritePresenter: ObservableObject {
             }, receiveValue: { detailNote in
                 print(detailNote)
                 self.note = detailNote
+            })
+            .store(in: &cancellables)
+    }
+    
+    func removeNote(idNote: String) {
+        repository.removeNote(idNote: idNote)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure:
+                    self.errorMessage = String(describing: completion)
+                case .finished:
+                    print("Item Removed")
+                }
+            }, receiveValue: { note in
+                self.isItemRemoved = note
             })
             .store(in: &cancellables)
     }

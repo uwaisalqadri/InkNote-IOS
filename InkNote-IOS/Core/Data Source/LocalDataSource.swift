@@ -89,7 +89,7 @@ extension LocalDataSource: LocalDataSourceProtocol {
                     realm.objects(Note.self).filter("id = \(idNote)")
                 }().first {
                     do {
-                        try realm.write {
+                        try realm.safeWrite {
                             realm.delete(note)
                             completion(.success(true))
                         }

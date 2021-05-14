@@ -27,6 +27,10 @@ struct WriteView: View {
                         .font(.custom("Poppins-SemiBold", size: 23))
                 }.onAppear {
                     print("id to detail \(idNote)")
+                    
+                    if presenter.isItemRemoved {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                     if idNote != 0 {
                         presenter.getNoteDetail(idNote: idNote)
                     }
@@ -90,33 +94,48 @@ extension WriteView {
     }
     
     var trailingItem: some View {
-        Button(action: {
-            isEditable = true
-        }) {
-            if isEditable {
-                Button(action: {
-                    if idNote == 0 {
-                        presenter.note.id = Note().autoIncrementId()
-                    }
-                    print("note id: \(presenter.note.id)")
-                    print("detail: \(presenter.note)")
-                    self.presentationMode.wrappedValue.dismiss()
-                    presenter.saveNote(from: presenter.note)
-                }) {
-                    Image(systemName: "checkmark")
-                        .padding()
-                        .foregroundColor(.black)
-                }
-            } else {
-                Image(systemName: "highlighter")
+        HStack {
+            Button(action: {
+                presenter.removeNote(idNote: String(idNote))
+            }) {
+                Image(systemName: "trash.fill")
                     .padding()
                     .foregroundColor(.black)
             }
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.white)
+                    .shadow(radius: 3, x: 0, y: 4)
+            )
+            
+            Button(action: {
+                isEditable = true
+            }) {
+                if isEditable {
+                    Button(action: {
+                        if idNote == 0 {
+                            presenter.note.id = Note().autoIncrementId()
+                        }
+                        print("note id: \(presenter.note.id)")
+                        print("detail: \(presenter.note)")
+                        self.presentationMode.wrappedValue.dismiss()
+                        presenter.saveNote(from: presenter.note)
+                    }) {
+                        Image(systemName: "checkmark")
+                            .padding()
+                            .foregroundColor(.black)
+                    }
+                } else {
+                    Image(systemName: "highlighter")
+                        .padding()
+                        .foregroundColor(.black)
+                }
+            }
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.white)
+                    .shadow(radius: 3, x: 0, y: 4)
+            )
         }
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
-                .shadow(radius: 3, x: 0, y: 4)
-        )
     }
 }
